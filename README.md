@@ -25,6 +25,12 @@ If looping through `int[] nums`,
 `set(int index, E element)`:
 Replaces the element at the specified position in this list with the specified element.
 
+`boolean	addAll(Collection<? extends E> c)`:
+Appends all of the elements in the specified collection to the end of this list, in the order that they are returned by the specified collection's Iterator.
+
+`boolean	addAll(int index, Collection<? extends E> c)`:
+Inserts all of the elements in the specified collection into this list, starting at the specified position.
+
 Note: `Arrays.asList(x, y, z)` will return a fixed-size list. If we want to modify the list, we need to do `new ArrayList(Arrays.asList(...))` or `new LinkedList(Arrays.asList(...))`.
 
 ### HashMap
