@@ -31,6 +31,9 @@ Appends all of the elements in the specified collection to the end of this list,
 `boolean	addAll(int index, Collection<? extends E> c)`:
 Inserts all of the elements in the specified collection into this list, starting at the specified position.
 
+`List<E>	subList(int fromIndex, int toIndex)`:
+Returns a view of the portion of this list between the specified fromIndex, inclusive, and toIndex, exclusive.
+
 Note: `Arrays.asList(x, y, z)` will return a fixed-size list. If we want to modify the list, we need to do `new ArrayList(Arrays.asList(...))` or `new LinkedList(Arrays.asList(...))`.
 
 ### HashMap
