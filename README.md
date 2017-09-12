@@ -4,6 +4,9 @@
 for (char ch: "xyz".toCharArray()) {
 }
 ```
+`public String substring(int startIndex)`: This method returns new String object containing the substring of the given string from specified startIndex (inclusive).
+
+`public String substring(int startIndex, int endIndex)`: This method returns new String object containing the substring of the given string from specified startIndex to endIndex.
 
 
 ### Loop
