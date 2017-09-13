@@ -86,3 +86,6 @@ public class lc.ListNode {
       lc.ListNode(int x) { val = x; }
 }
 ```
+
+### Tips
+1. Return more than one value: `class ResultType {int var1, var2;}`
