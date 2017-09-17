@@ -1,6 +1,6 @@
 ### String
 `String` is immutable in java. If we want to do for-each loop to every character in a String, we need to do
-```
+```java
 for (char ch: "xyz".toCharArray()) {
 }
 ```
@@ -69,7 +69,7 @@ Retrieves and removes the head of this queue, or returns null if this queue is e
 
 
 ### Tree
-```
+```java
 public class TreeNode {
     int val;
     TreeNode left;
@@ -79,11 +79,65 @@ public class TreeNode {
 ```
 
 ### LinkedList
-```
-public class lc.ListNode {
+```java
+public class ListNode {
       int val;
-      lc.ListNode next;
-      lc.ListNode(int x) { val = x; }
+      ListNode next;
+      ListNode(int x) { val = x; }
+}
+```
+
+### Topological Sorting
+#### BFS
+```java
+/**
+ * Definition for Directed graph.
+ * class DirectedGraphNode {
+ *     int label;
+ *     ArrayList<DirectedGraphNode> neighbors;
+ *     DirectedGraphNode(int x) { label = x; neighbors = new ArrayList<DirectedGraphNode>(); }
+ * };
+ */
+public class Solution {
+    /**
+     * @param graph: A list of Directed graph node
+     * @return: Any topological order for the given graph.
+     */
+    public ArrayList<DirectedGraphNode> topSort(ArrayList<DirectedGraphNode> graph) {
+        // write your code here
+        ArrayList<DirectedGraphNode> results = new ArrayList<>();
+        if (graph == null) {
+            return results;
+        }
+        HashMap<DirectedGraphNode, Integer> map = new HashMap();
+        for (DirectedGraphNode n : graph) {
+            for (DirectedGraphNode neighbor : n.neighbors) {
+                if (map.containsKey(neighbor)) {
+                    map.put(neighbor, map.get(neighbor) + 1);
+                } else {
+                    map.put(neighbor, 1);
+                }
+            }
+        }
+        Queue<DirectedGraphNode> q = new LinkedList<>();
+        for (DirectedGraphNode n : graph) {
+            if (!map.containsKey(n)) {
+                q.offer(n);
+                results.add(n);
+            }
+        }
+        while (!q.isEmpty()) {
+            DirectedGraphNode node = q.poll();
+            for (DirectedGraphNode neighbor : node.neighbors) {
+                map.put(neighbor, map.get(neighbor) - 1);
+                if (map.get(neighbor) == 0) {
+                    q.offer(neighbor);
+                    results.add(neighbor);
+                }
+            }
+        }
+        return results;
+    }
 }
 ```
 
